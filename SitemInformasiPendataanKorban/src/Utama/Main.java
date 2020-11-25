@@ -7,13 +7,17 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner input = new Scanner (System.in);
-    private static KorbanModel korban1 = new KorbanModel();
-    private static DataKorbanModel datakorban1 = new DataKorbanModel();
-    private static int pilstatus;
-    static int cekkorban;
+    private Scanner input = new Scanner (System.in);
+    private KorbanModel korban1 = new KorbanModel();
+    private DataKorbanModel datakorban1 = new DataKorbanModel();
+    private int pilstatus;
+    int cekkorban;
     
      public static void main(String[] args){
+         Main data = new Main();
+         data.menu();
+     }
+    public void menu(){
         int loop=0;
         do{
            int pilih = 0 ;
@@ -37,7 +41,7 @@ public class Main {
         }while (loop != 1);
      }
         
-    static void daftar(){
+    public void daftar(){
         input.nextLine();
         System.out.print("Input NIK = ");
         String nik = input.nextLine();
@@ -61,7 +65,7 @@ public class Main {
         korban1.insert(new KorbanEntity(nik,nama,pekerjaan,goldar,agama,jeniskelamin,notelp,bantuan,tanggal));
     }
 
-    static void viewdata(){
+    public void viewdata(){
         input.nextLine();
         System.out.print("NIK : ");
         String nik = input.nextLine();
@@ -90,7 +94,7 @@ public class Main {
         }
     }
     
-    static void daftarstatus(){
+    public void daftarstatus(){
         System.out.print("Pilih Status = \n");
         for(int i=0;i<StatusEntity.status.length;i++){
         System.out.println(i+". "+StatusEntity.status[i]);
@@ -100,7 +104,7 @@ public class Main {
             datakorban1.insertDataKorban(new DataKorbanEntity(pilstatus,
                korban1.getkorbanEntityArrayList(cekkorban)));
         }
-    static void updatestatus(){
+    public void updatestatus(){
         System.out.print("Input NIK = ");
         String nik = input.next();
         datakorban1.update(nik);
