@@ -21,10 +21,7 @@ public class KorbanEntity {
         this.TglLahir = TglLahir;
     }
    
-   public KorbanEntity (){
-   }
-
-    public String getNik() {
+  public String getNik() {
         return nik;
     }
 
